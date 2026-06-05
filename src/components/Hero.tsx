@@ -21,7 +21,18 @@ export default function Hero({ onStartQuiz }: HeroProps) {
   };
 
   return (
-    <section id="inicio" className="relative pt-12 pb-20 md:py-28 overflow-hidden bg-[#faf9f6]">
+    <section 
+      id="inicio" 
+      className="relative pt-16 pb-20 md:pt-36 md:pb-40 overflow-hidden bg-cover bg-center md:bg-[right_10%_center] lg:bg-[right_15%_center] bg-[#faf9f6]"
+      style={{ backgroundImage: `url(${nutriRafaela})` }}
+    >
+      
+      {/* Premium Gradient overlays for supreme text contrast and visual sophistication */}
+      {/* On small devices: we have a solid overlay with minor transparency so the text is fully readable */}
+      <div className="absolute inset-0 bg-white/92 md:hidden pointer-events-none z-0"></div>
+      {/* On md+ devices: we have an elegant gradient that flows from left to right, fading seamlessly from off-white/beige to fully transparent */}
+      <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#faf9f6] via-[#faf9f6]/95 to-transparent pointer-events-none z-0"></div>
+      <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#faf9f6] from-35% via-[#faf9f6]/95 via-50% to-transparent pointer-events-none z-0"></div>
       
       {/* Decorative organic background shapes */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-[#7c3aed]/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -99,56 +110,38 @@ export default function Hero({ onStartQuiz }: HeroProps) {
 
           </div>
 
-          {/* Photograph frame replicate: double round design with text bubble below */}
-          <div className="lg:col-span-5 relative flex justify-center items-center">
-            
-            {/* Background circular ornaments */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-80 h-72 sm:h-80 rounded-full border border-dotted border-[#7c3aed]/20 animate-[spin_40s_linear_infinite]"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[#7c3aed]/5 -z-10 blur-xl"></div>
-            
-            {/* Main Picture Portrait Card - revised layout to give supreme prominence to the photograph */}
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px] bg-white rounded-[40px] p-4 shadow-xl border border-stone-200/85 flex flex-col group">
-              
-              {/* Profile Image - Magnified Portrait cutout with premium rounded corners to highlight the amazing photo context */}
-              <div className="relative w-full aspect-[4/4.6] rounded-[32px] overflow-hidden shadow-sm bg-stone-50 border border-stone-100">
-                <img
-                  src={nutriRafaela}
-                  alt="Dra. Rafaela Cristina"
-                  className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
+          {/* Photograph frame is replaced by background image, so we display an elegant glassmorphic status badge floating gracefully over her image backdrop */}
+          <div className="lg:col-span-1"></div> {/* Offset column to give the content space */}
+          <div className="lg:col-span-4 relative flex justify-center lg:justify-end items-center z-10">
+            <div className="relative w-full max-w-[280px] bg-white/70 backdrop-blur-md rounded-[28px] p-6 shadow-xl border border-white/50 flex flex-col items-center text-center space-y-2 hover:bg-white/80 transition-all duration-300">
+              <div className="flex items-center space-x-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-600">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Atendimento Ativo</span>
               </div>
+              <p className="text-stone-900 font-serif text-sm font-bold leading-none">
+                Sete Lagoas & Online
+              </p>
+              <p className="text-[#7c3aed] font-mono text-[9px] tracking-widest font-black uppercase">
+                @nutrirafa.a
+              </p>
 
-              {/* Status Overlay Bubble inspired by screenshot's info bubble */}
-              <div className="w-full bg-stone-50/80 rounded-[28px] p-4 border border-stone-100/60 shadow-xs flex flex-col items-center text-center space-y-1 mt-4">
-                <div className="flex items-center space-x-1.5 text-xs font-mono font-bold uppercase tracking-wider text-emerald-600">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span>Atendimento Ativo</span>
-                </div>
-                <p className="text-stone-900 font-serif text-sm font-bold leading-none">
-                  Sete Lagoas & Online
-                </p>
-                <p className="text-[#7c3aed] font-mono text-[10px] tracking-widest font-black uppercase">
-                  @nutrirafa.a
-                </p>
-              </div>
+              <hr className="w-full border-stone-200/50 my-1" />
 
-              {/* Floating Green WhatsApp Bubble indicator exactly corresponding to image, styled elegantly */}
+              {/* Floating Green WhatsApp Bubble indicator inside the glass badge */}
               <a
                 href="https://wa.me/5531998495033"
                 target="_blank"
                 rel="noreferrer"
-                className="absolute -right-3 top-1/3 p-3 bg-emerald-500 hover:bg-emerald-600 rounded-full text-white shadow-lg cursor-pointer transform hover:scale-110 active:scale-95 transition-all z-20"
-                id="hero-whatsapp-bubble"
+                className="inline-flex items-center justify-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white font-serif font-bold text-[11px] tracking-wide px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 duration-200"
               >
-                <svg className="w-5.5 h-5.5 fill-white" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.591 2.016 14.133.991 11.6.991c-5.442 0-9.87 4.372-9.874 9.802-.001 1.73.468 3.424 1.356 4.935L2.073 21.05l5.574-1.46c.15.08.1.05.001 0z" />
                 </svg>
+                <span>Falar no WhatsApp</span>
               </a>
-
             </div>
 
           </div>
