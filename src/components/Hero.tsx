@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import { ArrowRight, Sparkles, ShieldCheck, HeartPulse, Sparkle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import nutriRafaela from "../assets/images/nutri_rafaela_1780679480888.png";
 
 interface HeroProps {
@@ -33,13 +33,6 @@ export default function Hero({ onStartQuiz }: HeroProps) {
           {/* Main Copy Area (7 columns) */}
           <div className="lg:col-span-7 space-y-8 text-left">
             
-            {/* Tag/Pre-title in the inspired style */}
-            <div className="inline-flex items-center space-x-2 bg-stone-100 px-4 py-2 rounded-full border border-stone-200/60 shadow-xs">
-              <span className="text-[#7c3aed] text-xs font-bold font-mono tracking-wider">
-                ✨ NUTRIÇÃO BASEADA EM CIÊNCIA E EMPATIA
-              </span>
-            </div>
-
             {/* Display Title - replica of screenshot's elegant font pairing and italic */}
             <div className="space-y-4">
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6.5xl text-stone-900 font-bold tracking-tight leading-[1.12]">
@@ -113,24 +106,26 @@ export default function Hero({ onStartQuiz }: HeroProps) {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-80 h-72 sm:h-80 rounded-full border border-dotted border-[#7c3aed]/20 animate-[spin_40s_linear_infinite]"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[#7c3aed]/5 -z-10 blur-xl"></div>
             
-            {/* Main Picture Oval and floating info card */}
-            <div className="relative w-full max-w-[320px] sm:max-w-[350px] aspect-[4/5] bg-stone-100 rounded-[50px] p-6 shadow-xl border border-stone-200 flex flex-col justify-between items-center group">
+            {/* Main Picture Portrait Card - revised layout to give supreme prominence to the photograph */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] bg-white rounded-[40px] p-4 shadow-xl border border-stone-200/85 flex flex-col group">
               
-              {/* Profile Image - Circular cutout wrapped in styling */}
-              <div className="relative w-48 sm:w-56 h-48 sm:h-56 rounded-full overflow-hidden border-4 border-white shadow-md bg-stone-200">
+              {/* Profile Image - Magnified Portrait cutout with premium rounded corners to highlight the amazing photo context */}
+              <div className="relative w-full aspect-[4/4.6] rounded-[32px] overflow-hidden shadow-sm bg-stone-50 border border-stone-100">
                 <img
                   src={nutriRafaela}
                   alt="Dra. Rafaela Cristina"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
               </div>
 
               {/* Status Overlay Bubble inspired by screenshot's info bubble */}
-              <div className="w-full bg-white rounded-3xl p-4 border border-stone-100 shadow-md flex flex-col items-center text-center space-y-1 mt-4">
+              <div className="w-full bg-stone-50/80 rounded-[28px] p-4 border border-stone-100/60 shadow-xs flex flex-col items-center text-center space-y-1 mt-4">
                 <div className="flex items-center space-x-1.5 text-xs font-mono font-bold uppercase tracking-wider text-emerald-600">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 absolute"></span>
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
                   <span>Atendimento Ativo</span>
                 </div>
                 <p className="text-stone-900 font-serif text-sm font-bold leading-none">
@@ -141,15 +136,15 @@ export default function Hero({ onStartQuiz }: HeroProps) {
                 </p>
               </div>
 
-              {/* Floating Green WhatsApp Bubble indicator exactly corresponding to image */}
+              {/* Floating Green WhatsApp Bubble indicator exactly corresponding to image, styled elegantly */}
               <a
-                href="https://wa.me/5531999999999" // Fallback link, chat is handled overall
+                href="https://wa.me/5531998495033"
                 target="_blank"
                 rel="noreferrer"
-                className="absolute -right-3 top-1/3 p-3.5 bg-emerald-500 hover:bg-emerald-600 rounded-full text-white shadow-lg cursor-pointer transform hover:scale-110 active:scale-95 transition-all z-20"
+                className="absolute -right-3 top-1/3 p-3 bg-emerald-500 hover:bg-emerald-600 rounded-full text-white shadow-lg cursor-pointer transform hover:scale-110 active:scale-95 transition-all z-20"
                 id="hero-whatsapp-bubble"
               >
-                <svg className="w-6 h-6 fill-white" viewBox="0 0 24 24">
+                <svg className="w-5.5 h-5.5 fill-white" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.591 2.016 14.133.991 11.6.991c-5.442 0-9.87 4.372-9.874 9.802-.001 1.73.468 3.424 1.356 4.935L2.073 21.05l5.574-1.46c.15.08.1.05.001 0z" />
                 </svg>
               </a>
