@@ -74,19 +74,6 @@ export default function App() {
         "-=0.7"
       );
 
-      // Hero Scroll Exit behavior: Elegant out-transition as patient scrolls down
-      gsap.to("#inicio > div", {
-        scrollTrigger: {
-          trigger: "#inicio",
-          start: "top top",
-          end: "bottom 30%",
-          scrub: true,
-        },
-        opacity: 0,
-        y: 40,
-        scale: 0.98,
-      });
-
       // --- SECTION 2, 3, 4, 5: ENTER/EXIT TRIGGER TEMPLATES ---
       const sections = [
         {
