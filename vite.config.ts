@@ -7,6 +7,10 @@ export default defineConfig(() => {
   return {
     // Use relative asset paths so the build works in subfolders/static hosting.
     base: './',
+    build: {
+      outDir: 'docs',
+      emptyOutDir: true,
+    },
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
